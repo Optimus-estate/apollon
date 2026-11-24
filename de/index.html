@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apollon — 9 geschlossene Anlagen am Meer | OPTIMUS ESTATE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#FAF8F3;color:#1a1a1a;display:flex;flex-direction:column;align-items:center}
+body>*{width:100%;max-width:900px}
+@media(min-width:1100px){body>*{max-width:1000px}}
+@media(min-width:1500px){body>*{max-width:1120px}}
+
+/* ── NAVBAR ── */
+.navbar{background:#FAF8F3;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #EDE7DC;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+
+.logo-img{height:46px;width:auto;display:block}
+.footer-logo-img{height:64px;width:auto;display:block}
+.btn3d{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;background:linear-gradient(180deg,#E3C77F 0%,#C9A24B 100%);color:#1A1A1A;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding:10px 16px;border-radius:6px;border:1px solid #A8862F;box-shadow:0 4px 0 #8C6E22,0 7px 12px rgba(28,43,75,.28),inset 0 1px 0 rgba(255,255,255,.55);text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
+.btn3d svg{width:14px;height:14px;flex-shrink:0}
+.btn3d:hover{transform:translateY(2px);box-shadow:0 2px 0 #8C6E22,0 4px 8px rgba(28,43,75,.25),inset 0 1px 0 rgba(255,255,255,.55)}
+.btn3d:active{transform:translateY(4px);box-shadow:0 0 0 #8C6E22,0 2px 4px rgba(28,43,75,.2)}
+
+/* ── HERO ── */
+.hero{padding:32px 32px 0;display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start}
+.hero-left{}
+.breadcrumbs{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#E8622A;margin-bottom:14px}
+.breadcrumbs span{color:#999;margin:0 6px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:#1C2B4B;line-height:1.1;margin-bottom:16px}
+.hero-divider{width:40px;height:3px;background:#E8622A;margin-bottom:16px}
+.hero-desc{font-size:13px;color:#444;line-height:1.65;margin-bottom:24px}
+.hero-right{}
+.hero-img{width:100%;border-radius:6px;object-fit:cover;display:block}
+.hero-img-placeholder{width:100%;height:200px;background:#e8e0d4;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999}
+
+/* ── SECTION COMMON ── */
+.section{padding:40px 32px}
+.section-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#E8622A;margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:#1C2B4B;line-height:1.15;margin-bottom:20px}
+.section-divider{width:100%;height:1px;background:#EDE7DC;margin:40px 0}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.about-text{font-size:13px;color:#444;line-height:1.7;margin-bottom:12px}
+.about-text b{font-weight:700;color:#1a1a1a}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#EDE7DC;border:1px solid #EDE7DC;border-radius:4px;overflow:hidden;margin-top:28px}
+.stat-cell{background:#FAF8F3;padding:20px 24px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#E8622A;line-height:1}
+.stat-unit{font-size:12px;color:#777;margin-top:4px}
+.stat-num-green{color:#2D9B6F}
+
+/* ── GALLERY ── */
+.gallery-tabs{display:flex;gap:0;margin-bottom:16px}
+.gallery-tab{font-size:11px;font-weight:600;padding:7px 16px;cursor:pointer;border:none;background:#1C2B4B;color:#fff}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:4px;border-radius:6px;overflow:hidden}
+.gallery-img-big{grid-row:1/3;width:100%;height:100%;object-fit:cover;display:block}
+.gallery-img-small{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-placeholder{background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-size:11px;color:#888;width:100%;height:100%}
+
+/* ── INFRASTRUCTURE ── */
+.infra-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.infra-list{list-style:none}
+.infra-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #EDE7DC}
+.infra-item:last-child{border-bottom:none}
+.infra-num{font-size:11px;font-weight:700;color:#E8622A;flex-shrink:0;width:20px;margin-top:1px}
+.infra-text{font-size:13px;color:#1a1a1a;line-height:1.4}
+.distance-section{margin-bottom:24px}
+.distance-title{font-size:13px;font-weight:700;color:#1C2B4B;margin-bottom:10px}
+.distance-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #EDE7DC}
+.distance-row:last-child{border-bottom:none}
+.distance-label{font-size:13px;color:#444}
+.distance-value{font-size:13px;font-weight:500;color:#1a1a1a}
+
+
+/* ── LOCATION ── */
+.loc-grid{display:grid;grid-template-columns:1fr 270px 1fr;gap:32px;align-items:start}
+.loc-map{text-decoration:none;display:block;position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 10px 28px rgba(28,43,75,.16);background:#e8e0d4}
+.loc-map img{width:100%;height:100%;object-fit:cover;display:block}
+.loc-chip{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:#1C2B4B;color:#fff;font-size:10px;font-weight:700;letter-spacing:.4px;padding:8px 12px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.loc-chip svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.loc-list{list-style:none}
+.loc-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #EDE7DC}
+.loc-row:last-child{border-bottom:none}
+.loc-ic{width:30px;height:30px;border-radius:50%;background:#FDEEE6;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.loc-ic svg{width:15px;height:15px;stroke:#E8622A;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.loc-t{font-size:13px;color:#1a1a1a;flex:1}
+.loc-v{font-size:13px;font-weight:600;color:#1C2B4B}
+.infra-list.two{columns:2;column-gap:40px}
+.infra-list.two .infra-item{break-inside:avoid}
+
+/* ── FINANCE ── */
+.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.tax-table{background:#fff;border:1px solid #EDE7DC;border-radius:4px;overflow:hidden}
+.tax-table-title{font-size:10px;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:0.8px;padding:12px 16px;border-bottom:1px solid #EDE7DC}
+.tax-row{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid #EDE7DC}
+.tax-row:last-child{border-bottom:none}
+.tax-label{font-size:13px;color:#444}
+.tax-value{font-size:13px;font-weight:600;color:#1a1a1a}
+.commission-box{background:#FAF8F3;border:1px solid #EDE7DC;border-radius:4px;padding:20px}
+.commission-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:#2D9B6F;margin-bottom:8px}
+.commission-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#1C2B4B;margin-bottom:10px}
+.commission-text{font-size:12px;color:#555;line-height:1.6}
+
+/* ── CTA ── */
+.cta-section{background:#1C2B4B;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:6px}
+.cta-sub{font-size:12px;color:rgba(255,255,255,0.7)}
+.btn-cta{background:transparent;border:1px solid rgba(255,255,255,0.4);color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:10px 20px;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.btn-cta svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2}
+
+/* ── CONTACTS ── */
+.contacts-section{padding:36px 32px}
+.contacts-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#E8622A;margin-bottom:12px}
+.contacts-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#1C2B4B;margin-bottom:24px}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:#fff;border:1px solid #EDE7DC;border-radius:4px}
+.contact-name{font-size:14px;font-weight:700;color:#1C2B4B;margin-bottom:4px}
+.contact-phone{font-size:13px;color:#E8622A;font-weight:500}
+.btn-whatsapp{background:#2D9B6F;color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;padding:10px 18px;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;white-space:nowrap;border-radius:2px}
+.btn-whatsapp svg{width:15px;height:15px;fill:#fff}
+
+/* ── FOOTER ── */
+.footer{background:#FAF8F3;border-top:1px solid #EDE7DC;padding:24px 32px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.footer-logo{display:flex;align-items:center;gap:8px}
+.footer-links{font-size:11px;color:#777}
+.footer-links a{color:#E8622A;text-decoration:none}
+.footer-copy{font-size:10px;color:#aaa;text-align:center}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .about-grid{grid-template-columns:1fr !important}
+  .hero{grid-template-columns:1fr;padding:24px 16px 0}
+  .hero-right{order:-1}
+  .section{padding:28px 16px}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .infra-grid{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+  .loc-map{aspect-ratio:auto;max-width:none;box-shadow:none;background:none;border-radius:6px}
+  .loc-map img{display:none}
+  .loc-chip{position:static;display:flex;justify-content:center;gap:10px;width:100%;padding:16px 18px;font-size:13px;letter-spacing:.3px;background:#E8622A;border-radius:6px;box-shadow:0 4px 0 #b44a1a}
+  .loc-chip svg{width:18px;height:18px}
+  .loc-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .loc-row{flex-direction:column;align-items:flex-start;gap:6px;padding:10px 12px;border:1px solid #EDE7DC;border-radius:6px;background:#fff}
+  .loc-row:last-child{border-bottom:1px solid #EDE7DC}
+  .loc-ic{width:26px;height:26px}
+  .loc-t{font-size:12px;line-height:1.25;flex:none}
+  .loc-v{font-size:14px}
+  .loc-lists .distance-title{margin-bottom:8px}
+
+  .infra-list.two{columns:1}
+  .finance-grid{grid-template-columns:1fr}
+  .cta-section{flex-direction:column;padding:24px 16px;align-items:flex-start}
+  .contacts-grid{grid-template-columns:1fr}
+  .footer{padding:20px 16px}
+  .navbar{padding:14px 16px}
+  .hero-title{font-size:30px}
+  .section-title{font-size:26px;margin-bottom:16px}
+  .hero-desc,.about-text,.infra-text,.tax-label,.tax-value,.commission-text{font-size:14px}
+  .breadcrumbs,.section-label,.contacts-label{font-size:10.5px}
+  .contacts-title{font-size:24px}
+  .cta-title{font-size:21px}
+  .cta-sub{font-size:13px}
+  .loc-t{font-size:13px}
+  .btn3d{font-size:10.5px}
+
+  .logo-img{height:34px}
+  .btn3d{font-size:10.5px;padding:9px 11px;letter-spacing:.03em}
+  .btn3d svg{display:none}
+}
+
+/* ── FONT SCALE (единая шкала для компьютера и телефона) ── */
+.breadcrumbs,.section-label,.contacts-label,.gallery-label,.col-label,.commission-label{font-size:11px}
+.hero-desc,.about-text,.commission-text{font-size:14px}
+.infra-text,.tax-label,.tax-value,.distance-label,.distance-value,.distance-title,.loc-t,.loc-v,.contact-phone,.usp-label{font-size:14px}
+.stat-unit,.tax-table-title,.cta-sub,.contact-card .btn-whatsapp,.btn-whatsapp,.btn-cta,.btn-cta-white,.btn3d{font-size:12px}
+.contact-name{font-size:15px}
+.loc-chip{font-size:11px}
+.footer-links{font-size:12px}
+.footer-copy{font-size:11px}
+.hero-title{font-size:36px}
+.commission-title{font-size:22px}
+.cta-title{font-size:24px}
+.contacts-title{font-size:26px}
+.stat-num,.stat-num-red,.stat-num-green{font-size:32px}
+@media(max-width:700px){
+  .hero-title{font-size:30px}
+  .commission-title,.cta-title{font-size:22px}
+  .contacts-title{font-size:24px}
+  .stat-num,.stat-num-red,.stat-num-green{font-size:28px}
+}
+@media(max-width:700px){
+  .hero-desc,.about-text,.commission-text{font-size:15px}
+  .infra-text,.tax-label,.tax-value,.distance-label,.distance-value,.distance-title,.loc-t,.loc-v,.contact-phone,.usp-label{font-size:14px}
+  .loc-chip{font-size:13px}
+  .tax-table-title{font-size:11px}
+  .stat-unit,.cta-sub,.btn-whatsapp,.btn-cta,.btn-cta-white{font-size:12px}
+  .btn3d{font-size:11px}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <a href="#top" class="logo" aria-label="OPTIMUS ESTATE">
+    <img src="../logo-optimus.png" alt="OPTIMUS ESTATE" class="logo-img"/>
+  </a>
+  <a href="https://optimus-estate.github.io/general-de/" target="_blank" rel="noopener" class="btn3d">Partnerprogramm <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="breadcrumbs">RAWDA <span>·</span> NESSEBAR <span>·</span> BULGARIEN</div>
+    <h1 class="hero-title">Apollon — 9 geschlossene<br>Anlagen am Meer</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Familienanlage am Meer mit hoher saisonaler Mietnachfrage. Studios sowie 1-, 2- und 3-Zimmer-Wohnungen mit 26–110 m². Alle Gebäude haben Akt 16 (Abnahmebescheinigung).</p>
+  </div>
+  <div class="hero-right">
+    <img src="../apollon.jpg" alt="Apollon Complexes" class="hero-img"/>
+  </div>
+</div>
+<!-- ══ О КОМПЛЕКСАХ ══ -->
+<div class="section">
+  <div class="section-label">ÜBER DIE ANLAGEN</div>
+  <h2 class="section-title">Ein Stil,<br>unterschiedliche Größe</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">Apollon sind <b>9 geschlossene Anlagen</b>, gebaut in einheitlichem Architekturstil zwischen Nessebar und Rawda. Jedes Gebäude steht auf einem eigenen, abgeschlossenen und bewachten Gelände.</p>
+      <p class="about-text">Grundrisse vom kompakten Studio bis zum Dreizimmer-Apartment, mit einer Fläche von <b>26–110 m²</b>. Geeignet für Urlaub, dauerhaftes Wohnen und Vermietung.</p>
+    </div>
+    <div class="about-stats" style="margin-top:-20px">
+      <div class="stat-cell">
+        <div class="stat-num">9</div>
+        <div class="stat-unit">Anlagen</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5-6</div>
+        <div class="stat-unit">Etagen · Aufzug</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">8</div>
+        <div class="stat-unit">Pools</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num stat-num-green">Akt 16</div>
+        <div class="stat-unit">alle Gebäude</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ГАЛЕРЕЯ ══ -->
+<div class="section" style="padding-top:0">
+  <div class="section-label">FOTOGALERIE</div>
+  <h2 class="section-title">So sieht Apollon aus</h2>
+  <div class="gallery-tabs">
+    <button class="gallery-tab">Apollon · Rawda</button>
+  </div>
+  <div class="gallery-grid">
+    <img src="../apollon-1.jpg" alt="Apollon Foto 1" class="gallery-img-big" onerror="this.style.background='#d4cfc8';this.alt='Foto der Anlage'"/>
+    <img src="../apollon-2.jpg" alt="Apollon Foto 2" class="gallery-img-small" onerror="this.style.background='#c8c2ba';this.alt='Foto der Anlage'"/>
+    <img src="../apollon-3.jpg" alt="Apollon Foto 3" class="gallery-img-small" onerror="this.style.background='#bfb9b1';this.alt='Foto der Anlage'"/>
+  </div>
+</div>
+
+<!-- ══ ЛОКАЦИЯ ══ -->
+<div class="section" style="padding-top:0">
+  <div class="section-label">LAGE</div>
+  <h2 class="section-title">Rawda — ein ruhiger Ferienort<br>neben Nessebar</h2>
+  <div class="loc-grid">
+    <div class="loc-text">
+      <p class="about-text">Apollon liegt in Rawda, einem ruhigen Ferienort zwischen Nessebar und Pomorie. Hier gibt es saubere Luft, einen breiten Sandstrand und alles Nötige zum Leben in der Nähe.</p>
+      <p class="about-text">Zum Meer: <b>2 Minuten zu Fuß</b>. Restaurants, Geschäfte und eine Schule sind fußläufig erreichbar, Nessebar und Sonnenstrand liegen wenige Autominuten entfernt.</p>
+    </div>
+    <a class="loc-map" href="https://maps.app.goo.gl/LjeTUVu1ZQ9BiqKGA" target="_blank" rel="noopener" aria-label="Apollon auf der Karte öffnen">
+      <img src="../location-map.jpg" alt="Karte: Lage der Anlage Apollon in Rawda" loading="lazy"/>
+      <span class="loc-chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Auf der Karte öffnen</span>
+    </a>
+    <div class="loc-lists">
+      <div class="distance-title">Zu Fuß erreichbar</div>
+      <ul class="loc-list"><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M3 16c1.5 1.4 3 1.4 4.5 0s3-1.4 4.5 0 3 1.4 4.5 0 3-1.4 4.5 0"/><path d="M3 11c1.5 1.4 3 1.4 4.5 0s3-1.4 4.5 0 3 1.4 4.5 0 3-1.4 4.5 0"/></svg></span><span class="loc-t">Strand</span><span class="loc-v">2 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/></svg></span><span class="loc-t">Restaurants und Cafés</span><span class="loc-v">3 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2.5l2 11h10l2-8H7"/></svg></span><span class="loc-t">Lidl</span><span class="loc-v">5 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></span><span class="loc-t">Schule</span><span class="loc-v">7 Min.</span></li></ul>
+      <div class="distance-title" style="margin-top:20px">Entfernungen mit dem Auto</div>
+      <ul class="loc-list"><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span class="loc-t">Rawda</span><span class="loc-v">2 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span class="loc-t">Nessebar</span><span class="loc-v">10 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span class="loc-t">Pomorie</span><span class="loc-v">20 Min.</span></li><li class="loc-row"><span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span><span class="loc-t">Burgas und Flughafen</span><span class="loc-v">35 Min.</span></li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ИНФРАСТРУКТУРА ══ -->
+<div class="section" style="padding-top:0">
+  <div class="section-label">INFRASTRUKTUR</div>
+  <h2 class="section-title">Alles Nötige auf dem Gelände</h2>
+  <ul class="infra-list two">
+        <li class="infra-item"><span class="infra-num">01</span><span class="infra-text">8 Pools auf dem Gelände der Anlage</span></li>
+        <li class="infra-item"><span class="infra-num">02</span><span class="infra-text">Liege- und Erholungsbereich</span></li>
+        <li class="infra-item"><span class="infra-num">03</span><span class="infra-text">Kinderspielplatz</span></li>
+        <li class="infra-item"><span class="infra-num">04</span><span class="infra-text">Restaurant (in einer der Anlagen)</span></li>
+        <li class="infra-item"><span class="infra-num">05</span><span class="infra-text">Bar</span></li>
+        <li class="infra-item"><span class="infra-num">06</span><span class="infra-text">Bewachung rund um die Uhr (24/7)</span></li>
+        <li class="infra-item"><span class="infra-num">07</span><span class="infra-text">Gepflegtes, abgeschlossenes Gelände</span></li>
+        <li class="infra-item"><span class="infra-num">08</span><span class="infra-text">Parkplatz in der Nähe</span></li>
+      </ul>
+</div>
+
+<!-- ══ ФИНАНСЫ ══ -->
+<div class="section" style="padding-top:0">
+  <div class="section-label">KONDITIONEN</div>
+  <h2 class="section-title">Die finanzielle Seite</h2>
+  <div class="finance-grid">
+    <div class="tax-table">
+      <div class="tax-table-title">Instandhaltungsgebühr je Anlage</div>
+      <div class="tax-row"><span class="tax-label">Apollon 2–6</span><span class="tax-value">11 €/m²</span></div>
+      <div class="tax-row"><span class="tax-label">Apollon 7–9</span><span class="tax-value">14 €/m²</span></div>
+      <div class="tax-row"><span class="tax-label">Apollon Nessebar</span><span class="tax-value">14 €/m²</span></div>
+    </div>
+    <div class="commission-box">
+      <div class="commission-label">Provision</div>
+      <div class="commission-title">Keine Provision im Preis</div>
+      <p class="commission-text">Schlagen Sie sie obendrauf — sie gehört ganz Ihnen. Der Kunde wird bei der ersten gemeinsamen Besichtigung registriert.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA ══ -->
+<div class="cta-section">
+  <div>
+    <div class="cta-title">Bereit, es Ihrem Kunden zu zeigen?</div>
+    <div class="cta-sub">Sehen Sie die aktuelle Preisliste aller Teilanlagen von Apollon (auf Russisch)</div>
+  </div>
+  <a href="https://airtable.com/app4flQF8p47DvF7v/shrOfWUrVA1HO54K1/tbl56x9OZb7wZEV4W" target="_blank" class="btn-cta">
+    Preisliste Apollon ansehen (RU)
+    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<!-- ══ КОНТАКТЫ ══ -->
+<div class="contacts-section">
+  <div class="contacts-label">KONTAKT</div>
+  <h2 class="contacts-title">Für Besichtigungen</h2>
+  <div class="contacts-grid">
+    <div class="contact-card">
+      <div>
+        <div class="contact-name">Alexander</div>
+        <div class="contact-phone">+359 87 769 25 46</div>
+      </div>
+      <a href="https://wa.me/359877692546" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="contact-card">
+      <div>
+        <div class="contact-name">Wassili</div>
+        <div class="contact-phone">+359 89 517 66 85</div>
+      </div>
+      <a href="https://wa.me/359895176685" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="../logo-optimus.png" alt="OPTIMUS ESTATE" class="footer-logo-img"/>
+  </div>
+  <div class="footer-links">
+    <a href="https://bolgarskidom.com">bolgarskidom.com</a> · <a href="mailto:optimusbg@mail.ru">optimusbg@mail.ru</a>
+  </div>
+  <div class="footer-copy">Präsentation der Anlage Apollon · Rawda, Bulgarien</div>
+</footer>
+
+</body>
+</html>
